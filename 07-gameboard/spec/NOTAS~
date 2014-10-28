@@ -55,7 +55,7 @@ Así ya podemos llamara Game.initilize en el beforeEach de PlayerShip.
 
 Una última mejora. En realidad de Game.initialize sólo necesitamos que
 cargue la hoja de sprites. En lugar de llamar a Game.initialize por
-tanto podemos cargar los prites:
+tanto podemos cargar lso prites:
 
       SpriteSheet.load(sprites,function(){});
 
