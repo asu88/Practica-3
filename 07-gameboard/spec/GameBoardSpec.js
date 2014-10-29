@@ -1,24 +1,51 @@
 
-describe("Clase Gameboards", function(){
-    // Una vez comenzado el juego deberá aparecer la nave del jugador en
-    // la parte inferior
+describe("GameBoardSpec", function() {
+  var a;
+  var canvas; 
+  
+  beforeEach(function(){
+  loadFixtures('index.html');
+  
+  canvas = $('#game')[0];
+  expect(canvas).toExist();
+  
+  ctx = canvas.getContext('2d');
+  expect(ctx).toBeDefined();
 
-    // La nave debera moverse a izquierda y derecha con las teclas de las
-    // flechas izda y dcha
+  });
+  
+  it("canvas", function() {
+      a = true;
+      expect(canvas).toBeDefined();
+      
+  });
 
-    var canvas, ctx;
+ it("myBoard",function(){
+ 
+    var myBoard = new GameBoard();
+    expect(myBoard).toBeDefined();
+    var myadd = myBoard.add(new PlayerShip());
+    expect(myadd).toBeDefined();
+ });
 
-    beforeEach(function(){
-	loadFixtures('index.html');
-    canvas = $('#game')[0];    
-    it("add", function(){
-        //expect(canvas).toBeDefined();
-        var myBoard = new GameBoard() ;
-       myBoard.add(new PlayerShip());
-        expect(myBoard.add).toHaveBeenCalled();          
-    });
-	 
 });
+
+
+    
+   // it("canvas", function(){
+        
+     //   canvas = $('#game')[0];
+	   // expect(canvas).toExist();
+       // expect(canvas).toBeDefined();
+        //spyOn(GameBoard, "add");
+        //var myBoard = new GameBoard() ;
+        //myBoard.add(new PlayerShip());
+        //expect(myBoard.add(new PlayerShip())).toHaveBeenCalled();          
+    //});
+	 
+
+
+
 
 
 /*
