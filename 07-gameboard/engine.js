@@ -95,10 +95,10 @@ var SpriteSheet = new function() {
     // callback: para llamarla cuando se haya cargado la hoja de
     // sprites
     this.load = function(spriteData,callback) { 
-	this.map = spriteData;
-	this.image = new Image();
-	this.image.onload = callback;
-	this.image.src = 'images/sprites.png';
+	    this.map = spriteData;
+	    this.image = new Image();
+	    this.image.onload = callback;
+	    this.image.src = 'images/sprites.png';
     };
 
     
@@ -171,9 +171,9 @@ var GameBoard = function() {
 
     // Añade obj a objects
     this.add = function(obj) { 
-	obj.board=this;  // Para que obj pueda referenciar el tablero
-	this.objects.push(obj); 
-	return obj; 
+	    obj.board=this;  // Para que obj pueda referenciar el tablero
+	    this.objects.push(obj); 
+	 return obj; 
     };
 
     // Los siguientes 3 métodos gestionan el borrado.  Cuando un board
@@ -184,7 +184,7 @@ var GameBoard = function() {
 
     // Marcar un objeto para borrar
     this.remove = function(obj) { 
-	this.removed.push(obj); 
+	    this.removed.push(obj); 
     };
 
     // Inicializar la lista de objetos pendientes de ser borrados

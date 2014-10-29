@@ -1,77 +1,25 @@
 
-describe("Clase GameBoardSpec", function(){
-
+describe("Clase Gameboards", function(){
     // Una vez comenzado el juego deberá aparecer la nave del jugador en
     // la parte inferior
 
     // La nave debera moverse a izquierda y derecha con las teclas de las
     // flechas izda y dcha
-    
+
     var canvas, ctx;
 
     beforeEach(function(){
 	loadFixtures('index.html');
-
-	canvas = $('#game')[0];
-	expect(canvas).toExist();
-
-	ctx = canvas.getContext('2d');
-	expect(ctx).toBeDefined();
-
-    oldGame = Game;
-	SpriteSheet.load (sprites,function(){});
+    canvas = $('#game')[0];    
+    it("add", function(){
+        //expect(canvas).toBeDefined();
+        var myBoard = new GameBoard() ;
+        myBoard.add() ;
+        expect(myBoard.add).toHaveBeenCalled();          
     });
-
-    afterEach(function(){
-        Game = oldGame;
-    });
-
-    
-    it("draw Game", function(){
-    	//   a) draw llama a SpriteSheet.draw con los parametros adecuados en
-    	//      funcion de su posicion
-    
-
-	// Comprobamos que draw llama a SpriteSheet.draw con los
-	// parametros adecuados
-	spyOn(SpriteSheet, "draw");
-
-	// Necesitamos tener Game.width y Game.height para que el
-	// constructor de PlayerShip pueda inicializar x e y
-	Game = {width: 320, height: 480};
-
-	var miNave = new PlayerShip();
-
-	miNave.draw();
-
-	expect(SpriteSheet.draw).toHaveBeenCalled();
- 	expect(SpriteSheet.draw.calls[0].args[1]).toEqual("ship");
- 	expect(SpriteSheet.draw.calls[0].args[2]).toEqual(miNave.x);
- 	expect(SpriteSheet.draw.calls[0].args[3]).toEqual(miNave.y);
- 	expect(SpriteSheet.draw.calls[0].args[4]).toEqual(0);
-	
-    });
-    
-    it("draw GameBoards", function(){
-        
-        spyOn(SpriteSheet, "draw");
-        Game = {width: 320, height: 480};
-        var gameB = new GameBoards();
-        gameB.draw();
-        expect(SpriteSheet.draw).toHaveBeenCalled();
- 	    expect(SpriteSheet.draw.calls[0].args[1]).toEqual("ship");
- 	    expect(SpriteSheet.draw.calls[0].args[2]).toEqual(gameB.x);
- 	    expect(SpriteSheet.draw.calls[0].args[3]).toEqual(gameB.y);
- 	    expect(SpriteSheet.draw.calls[0].args[4]).toEqual(0);
-	
-    }
-    
-    });
-
-    
-
-
+	 
 });
+
 
 /*
   En el anterior prototipo (06-player), el objeto Game permite
