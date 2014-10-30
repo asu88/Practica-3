@@ -13,9 +13,15 @@ var startGame = function() {
 
 
 var playGame = function() {
+  
+  var canvas = document.getElementById('game');
+  var ctx = canvas.getContext && canvas.getContext('2d');
+  //SpriteSheet().load()
+  //explosion: { sx: 0, sy: 64, w: 64, h: 64, frames: 12 }
   var board = new GameBoard();
   board.add(new PlayerShip());
-  Game.setBoard(20,board);
+  
+  Game.setBoard(3,board);
 }
 
 

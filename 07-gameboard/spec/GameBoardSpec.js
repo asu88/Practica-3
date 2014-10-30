@@ -2,6 +2,8 @@
 describe("GameBoardSpec", function() {
   var a;
   var canvas; 
+  var TablaNaves;
+  var NaveUsuario;    
   
   beforeEach(function(){
   loadFixtures('index.html');
@@ -11,22 +13,45 @@ describe("GameBoardSpec", function() {
   
   ctx = canvas.getContext('2d');
   expect(ctx).toBeDefined();
-
-  });
+  oldGame = Game;
+  SpriteSheet.load (sprites,function(){});
+  TablaNaves = new GameBoard();
+  NaveUsuario = new PlayerShip();    
   
-  it("canvas", function() {
-      a = true;
-      expect(canvas).toBeDefined();
-      
+
   });
 
- it("myBoard",function(){
- 
-    var myBoard = new GameBoard();
-    expect(myBoard).toBeDefined();
-    var myadd = myBoard.add(new PlayerShip());
-    expect(myadd).toBeDefined();
- });
+   afterEach(function(){
+        Game = oldGame; // Reseteamos Game tras ser usado
+    });
+  
+  
+
+ it("GameBoards.add()  ",function(){
+    
+   // spyOn(GameBoard., "draw");
+    //spyOn(GameBoard, "add");
+    
+   
+    TablaNaves.add(NaveUsuario);
+       
+    Game.setBoard(3,TablaNaves); 
+    expect(TablaNaves.add(NaveUsuario)).toEqual(NaveUsuario);
+    
+    
+  });
+
+   it("GameBoards.objects[0]  ",function(){
+        
+   
+    TablaNaves.add(NaveUsuario);
+    Game.setBoard(3,TablaNaves); 
+    expect(TablaNaves.objects[0]).toEqual(NaveUsuario);
+
+    
+  });
+
+
 
 });
 
