@@ -34,45 +34,46 @@ describe("GameBoardSpec", function() {
     
    
     TablaNaves.add(NaveUsuario);
-       
+    expect(TablaNaves.objects.length).toEqual(1);
     Game.setBoard(3,TablaNaves); 
     expect(TablaNaves.add(NaveUsuario)).toEqual(NaveUsuario);
     
     
   });
 
-   it("GameBoards.objects[0]  ",function(){
+   it("GameBoard.objects[0]  ",function(){
         
    
     TablaNaves.add(NaveUsuario);
+    expect(TablaNaves.objects.length).toEqual(1);
     Game.setBoard(3,TablaNaves); 
     expect(TablaNaves.objects[0]).toEqual(NaveUsuario);
 
     
   });
 
+   it("GameBoards.remove(NaveUsuario), GameBoards.finalizeRemoved()",function(){
+    //var rem; 
 
+    TablaNaves.add(NaveUsuario);
+    expect(TablaNaves.objects.length).toEqual(1);
+    TablaNaves.resetRemoved();
+    TablaNaves.remove(NaveUsuario);
+    TablaNaves.finalizeRemoved();
+    expect(TablaNaves.objects.length).toEqual(0);
+   // TablaNaves.resetRemoved();
+
+ });
+
+   it("GameBoard.iterate",function(){
+      //expect(GameBoard.add).toHaveBeenCalled();
+       // expect(SpriteSheet.draw.calls[0].args[1]).toEqual(NaveUsuario);
+   });
 
 });
 
 
-    
-   // it("canvas", function(){
-        
-     //   canvas = $('#game')[0];
-	   // expect(canvas).toExist();
-       // expect(canvas).toBeDefined();
-        //spyOn(GameBoard, "add");
-        //var myBoard = new GameBoard() ;
-        //myBoard.add(new PlayerShip());
-        //expect(myBoard.add(new PlayerShip())).toHaveBeenCalled();          
-    //});
-	 
-
-
-
-
-
+  
 /*
   En el anterior prototipo (06-player), el objeto Game permite
   gestionar una colección de tableros (boards). Los tres campos de
