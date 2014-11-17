@@ -66,6 +66,10 @@ describe("GameBoardSpec", function() {
  });
 
    it("GameBoard.iterate",function(){
+        TablaNaves.add(NaveUsuario);
+        TablaNaves.add(NaveUsuario);
+        TablaNaves.add(NaveUsuario);
+        expect(TablaNaves.objects.length).toEqual(3);
       //expect(GameBoard.add).toHaveBeenCalled();
        // expect(SpriteSheet.draw.calls[0].args[1]).toEqual(NaveUsuario);
    });
